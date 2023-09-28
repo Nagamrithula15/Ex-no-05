@@ -1,0 +1,270 @@
+//program 1//
+package books;
+
+public class Book {
+    private String bookId;
+    private String accessionNumber;
+    private String bookName;
+    private String author;
+    private String publication;
+
+    public Book(String bookId, String accessionNumber, String bookName, String author, String publication) {
+        this.bookId = bookId;
+        this.accessionNumber = accessionNumber;
+        this.bookName = bookName;
+        this.author = author;
+        this.publication = publication;
+    }
+
+    public String toString() {
+        return "Book ID: " + bookId + ", Accession Number: " + accessionNumber +
+               ", Book Name: " + bookName + ", Author: " + author +
+               ", Publication: " + publication;
+    }
+}
+// Journal.java in the journal package
+package journal;
+
+public class Journal {
+    private String journalId;
+    private String journalName;
+
+    public Journal(String journalId, String journalName) {
+        this.journalId = journalId;
+        this.journalName = journalName;
+    }
+
+    public String toString() {
+        return "Journal ID: " + journalId + ", Journal Name: " + journalName;
+    }
+}
+// Main.java
+import books.Book;
+import journal.Journal;
+
+public class Main {
+    public static void main(String[] args) {
+        Book book1 = new Book("B001", "A123", "Book 1", "Author 1", "Publisher 1");
+        Book book2 = new Book("B002", "B456", "Book 2", "Author 2", "Publisher 2");
+        Journal journal1 = new Journal("J001", "Journal 1");
+        Journal journal2 = new Journal("J002", "Journal 2");
+
+        // Display book and journal information
+        System.out.println("Book 1: " + book1);
+        System.out.println("Book 2: " + book2);
+        System.out.println("Journal 1: " + journal1);
+        System.out.println("Journal 2: " + journal2);
+    }
+}
+//program 2//
+src/
+
+|-- pack1/
+
+|   |-- MathOperations.java
+
+|
+
+|-- pack2/
+
+|   |-- StringOperations.java
+
+|
+
+|-- pack3/
+
+|   |-- Calculator.java
+
+|
+
+|-- Main.java (for testing)
+
+package pack1;
+
+
+
+public class MathOperations {
+
+    public int add(int a, int b) {
+
+        return a + b;
+
+    }
+
+
+
+    public int subtract(int a, int b) {
+
+        return a - b;
+
+    }
+
+}
+
+package pack2;
+
+
+
+public class StringOperations {
+
+    public String concatenate(String str1, String str2) {
+
+        return str1 + str2;
+
+    }
+
+
+
+    public String reverse(String str) {
+
+        return new StringBuilder(str).reverse().toString();
+
+    }
+
+}
+
+package pack3;
+
+
+
+public class Calculator {
+
+    public int multiply(int a, int b) {
+
+        return a * b;
+
+    }
+
+
+
+    public String divide(int a, int b) {
+
+        if (b == 0) {
+
+            return "Cannot divide by zero.";
+
+        } else {
+
+            return "Result of division: " + (a / b);
+
+        }
+
+    }
+
+}
+
+import pack1.MathOperations;
+
+import pack2.StringOperations;
+
+import pack3.Calculator;
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        // Create instances of the classes
+
+        MathOperations mathOps = new MathOperations();
+
+        StringOperations stringOps = new StringOperations();
+
+        Calculator calculator = new Calculator();
+
+
+
+        // Test the methods and print the results
+
+        System.out.println("Math Operations:");
+
+        System.out.println("Addition: " + mathOps.add(10, 5));
+
+        System.out.println("Subtraction: " + mathOps.subtract(10, 5));
+
+
+
+        System.out.println("\nString Operations:");
+
+        System.out.println("Concatenation: " + stringOps.concatenate("Hello, ", "world!"));
+
+        System.out.println("Reversed String: " + stringOps.reverse("Java"));
+
+
+
+        System.out.println("\nCalculator Operations:");
+
+        System.out.println("Multiplication: " + calculator.multiply(5, 4));
+
+        System.out.println("Division: " + calculator.divide(10, 2));
+
+        System.out.println("Division by zero: " + calculator.divide(10, 0));
+
+    }
+
+}
+//program 3//
+package mypackage;
+
+
+
+public class Parent {
+
+    protected int protectedProperty = 10;
+
+    int defaultProperty = 20;
+
+
+
+    public void displayProperties() {
+
+        System.out.println("Protected Property: " + protectedProperty);
+
+        System.out.println("Default Property: " + defaultProperty);
+
+    }
+
+}
+
+package mypackage;
+
+
+
+public class Subclass extends Parent {
+
+    public void accessParentProperties() {
+
+        System.out.println("Accessing protected property: " + protectedProperty);
+
+        // Cannot access defaultProperty directly as it is not visible in this subclass
+
+    }
+
+}
+
+package mypackage;
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        Subclass subclass = new Subclass();
+
+
+
+        // Access protected property via subclass
+
+        subclass.accessParentProperties();
+
+
+
+        // Access default property via subclass (not possible, will result in a compilation error)
+
+        // System.out.println("Accessing default property: " + subclass.defaultProperty);
+
+    }
+
+}
